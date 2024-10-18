@@ -1,0 +1,4 @@
+is_debug: true
+database_dsn: postgres://admin:admin@localhost:5432/admin
+nats_dsn: nats://127.0.0.1:4222
+redis_dsn: redis://127.0.0.1:6379/20
