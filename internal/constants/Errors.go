@@ -12,6 +12,7 @@ var (
 )
 
 func HandleError(b *gotgbot.Bot, _ *ext.Context, err error) ext.DispatcherAction {
+	logging.DefaultLogger.Error().AnErr("an unexpected error occurred: ", err)
 	switch err {
 	case InternalError:
 		logging.DefaultLogger.Error().Msg(err.Error())

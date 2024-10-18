@@ -9,6 +9,7 @@ import (
 
 type Middlewares interface {
 	TestMiddleware(_ *gotgbot.Bot, ctx *ext.Context) error
+	TestMiddlewareCallback(_ *gotgbot.Bot, ctx *ext.Context) error
 }
 
 type MiddlewaresImpl struct {
@@ -21,6 +22,11 @@ func MiddlewaresInit() *MiddlewaresImpl {
 
 func (u *MiddlewaresImpl) TestMiddleware(_ *gotgbot.Bot, ctx *ext.Context) error {
 	logging.DefaultLogger.Info().Msg("Test middleware")
+	//if need to stop -> return ext.EndGroups
+	return ext.ContinueGroups
+}
+func (u *MiddlewaresImpl) TestMiddlewareCallback(_ *gotgbot.Bot, ctx *ext.Context) error {
+	logging.DefaultLogger.Info().Msg("Test middleware callback")
 	//if need to stop -> return ext.EndGroups
 	return ext.ContinueGroups
 }

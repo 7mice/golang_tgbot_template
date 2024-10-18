@@ -19,7 +19,7 @@ func Run(dispatcher *ext.Dispatcher, bot *gotgbot.Bot) {
 		},
 	})
 	if err != nil {
-		logging.DefaultLogger.Fatal().Msgf("@%s has been started...\n", bot.User.Username) // Return error instead of panic
+		logging.DefaultLogger.Fatal().Msgf("@%s hasn't been started...\n", bot.User.Username) // Return error instead of panic
 	}
 	logging.DefaultLogger.Info().Msgf("@%s has been started...\n", bot.User.Username)
 	updater.Idle()
