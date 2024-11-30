@@ -1,7 +1,7 @@
 package repository
 
 import (
-	"gorm.io/gorm"
+	"github.com/jmoiron/sqlx"
 )
 
 type TestRepository interface {
@@ -9,10 +9,10 @@ type TestRepository interface {
 }
 
 type TestRepositoryImpl struct {
-	db *gorm.DB
+	db *sqlx.DB
 }
 
-func TestRepositoryInit(db *gorm.DB) *TestRepositoryImpl {
+func TestRepositoryInit(db *sqlx.DB) *TestRepositoryImpl {
 	return &TestRepositoryImpl{
 		db: db,
 	}
